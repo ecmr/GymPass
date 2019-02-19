@@ -1,0 +1,58 @@
+﻿@Model IList<String>
+
+    
+
+@{
+    ViewBag.Title = "Home Page";
+    string TP = "TESTE";
+}
+
+<div class="jumbotron">
+    <h1>Gympass</h1>
+    <h2>Resultado da corrida.</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Informações da Corrida</h2>
+
+
+        <table class="table">
+             <thead>
+                 <tr>
+                     <th scope="col">Posição</th>
+                     <th scope="col">Número</th>
+                     <th scope="col">Nome</th>
+                     <th scope="col">Volta</th>
+                     <th scope="col">Tempo</th>
+                     <th scope="col">Melhor Volta (Volta - Tempo)</th>
+                 </tr>
+            </thead>
+             <tbody>
+                 @foreach (Piloto item in Model)
+                 {
+                 <tr>
+                     <th>@item.posicao</th>
+                     <th>@item.Numero</th>
+                     <th>@item.Nome</th>
+                     <th>@item.Volta</th>
+                     <th>@item.TempoVolta</th>
+                     <th>@item.MelhorVolta</th>
+                 </tr>
+                     TP = string.Concat(item.TempoTotal.Hours, ":", item.TempoTotal.Minutes, ":", item.TempoTotal.Seconds).ToString();
+                 }
+         /**/
+             </tbody>
+            <thead>
+                <tr>
+                    <th><p>Tempo Total de Prova</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>@TP</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
